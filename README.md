@@ -74,7 +74,7 @@ So, for psychrometrics:
 ## ✅ Summary
 
 * **IAPWS-IF97** is for **pure water/steam** only.
-* **Psychrometrics** is for **humid air** (water vapor + dry air).
+* **Psychrometrics SAM_Mollier** is for **humid air** (water vapor + dry air).
 * Both use overlapping physics (e.g. saturation pressure), but serve different systems.
 
 
