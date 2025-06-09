@@ -1,11 +1,11 @@
 # SAM_Template
 
-<a href="https://github.com/HoareLea/SAM_Excel"><img src="https://github.com/HoareLea/SAM/blob/master/Grasshopper/SAM.Core.Grasshopper/Resources/SAM_Small.png" align="left" hspace="10" vspace="6"></a>
+<a href="https://github.com/HoareLea/SAM_IAPWS"><img src="https://github.com/HoareLea/SAM/blob/master/Grasshopper/SAM.Core.Grasshopper/Resources/SAM_Small.png" align="left" hspace="10" vspace="6"></a>
 
-**SAM** is part of SAM Toolkit that is designed to help engneers to create Analytical Model. Welcome and let's make the opensource journey continue. :handshake:
+**SAM_IAPWS** is part of SAM Toolkit that is designed to help engineers calculate Water and Steam properties. Welcome and let's make the opensource journey continue. :handshake:
 
 ## Resources
-* [Wiki](https://github.com/HoareLea/SAM/wiki)
+* [Wiki](https://github.com/HoareLea/SAM_IAPWS/wiki)
 
 ## Installing
 
