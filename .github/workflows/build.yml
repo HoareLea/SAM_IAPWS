@@ -47,7 +47,6 @@ jobs:
           # >>> ADJUST BUILD ORDER HERE IF NEEDED <<<
           # Keep the current repo LAST.
           $buildOrder = @(
-            'SAM'
             'SAM_IAPWS'
             $repo
           )
@@ -87,7 +86,6 @@ jobs:
 
           # Same build order as above (keep repo LAST)
           $buildOrder = @(
-            'SAM'
             'SAM_IAPWS'
             $repo
           )
