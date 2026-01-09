@@ -1,98 +1,89 @@
 [![Build (Windows)](https://github.com/SAM-BIM/SAM_IAPWS/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/SAM-BIM/SAM_IAPWS/actions/workflows/build.yml)
 [![Installer (latest)](https://img.shields.io/github/v/release/SAM-BIM/SAM_Deploy?label=installer)](https://github.com/SAM-BIM/SAM_Deploy/releases/latest)
 
-
 # SAM_IAPWS
 
-<a href="https://github.com/HoareLea/SAM_IAPWS"><img src="https://github.com/HoareLea/SAM/blob/master/Grasshopper/SAM.Core.Grasshopper/Resources/SAM_Small.png" align="left" hspace="10" vspace="6"></a>
+<a href="https://github.com/SAM-BIM/SAM">
+  <img src="https://github.com/SAM-BIM/SAM/blob/master/Grasshopper/SAM.Core.Grasshopper/Resources/SAM_Small.png"
+       align="left" hspace="10" vspace="6">
+</a>
 
-**SAM_IAPWS** is part of SAM Toolkit that is designed to help engineers calculate Water and Steam properties. Welcome and let's make the opensource journey continue. :handshake:
+**SAM_IAPWS** is part of the **SAM (Sustainable Analytical Model) Toolkit** —  
+an open-source collection of tools designed to help engineers create, manage,
+and process analytical building models for energy and environmental analysis.
 
-**IAPWS-IF97** is the **Industrial Formulation 1997** created by the **International Association for the Properties of Water and Steam**.
-It is:
+This repository provides **thermodynamic property calculations for pure water and steam**
+based on the **IAPWS-IF97** industrial formulation published by the  
+*International Association for the Properties of Water and Steam (IAPWS)*.
 
-* 🔬 Designed **specifically for pure water and steam**
-* 💧 Includes **liquid, vapor, and supercritical states** of water
-* 🧪 Used extensively in:
-
-  * Power plants (Rankine cycles)
-  * Steam turbines
-  * Boilers
-  * Scientific computation involving water as a pure substance
-
-❌ It **does not** cover:
-
-* Dry air
-* Mixtures like **humid air**
-* Psychrometric properties (which require additional modeling like Dalton’s law and mixture rules)
+The implementation is intended for applications involving **liquid water, steam,
+and supercritical states**, such as plant systems, thermal processes,
+and energy simulation workflows within SAM.
 
 ---
 
-## 📊 2. **IAPWS-IF97 Regions and Examples**
+## Scope
 
-Here’s a breakdown of each region with real-world examples:
+`SAM_IAPWS` implements the **IAPWS-IF97 formulation**, which applies to:
 
-| Region | State                           | Description                                                         | Example                                                       |
-| ------ | ------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------- |
-| **1**  | **Compressed/Subcooled Liquid** | Water below saturation temperature for given pressure               | Hot water in a pressurized heating loop (e.g. 120°C at 2 bar) |
-| **2**  | **Superheated Vapor**           | Steam above saturation temperature at given pressure                | Turbine inlet steam (e.g. 300°C at 1 MPa)                     |
-| **3**  | **Dense fluid (near critical)** | High-pressure region near water’s critical point                    | Water at 650 K and 22 MPa in supercritical boilers            |
-| **4**  | **Saturation (phase boundary)** | Coexistence of saturated liquid and vapor — boiling/condensing line | Boiling water at 100°C and 1 atm                              |
-| **5**  | **High-temp vapor**             | Very high temperature/low pressure steam (used in gas turbines)     | Steam at 800 K and 0.5 MPa                                    |
+- compressed and subcooled liquid water  
+- saturated liquid–vapor phase boundary  
+- superheated steam  
+- dense and supercritical water states  
 
----
+It is designed for **pure water and steam only**.
 
-## 💡 3. **So What Do You Use for Humid Air?**
-
-For **air–water vapor mixtures**, like in psychrometrics:
-
-| Property             | Source                                                                                  |
-| -------------------- | --------------------------------------------------------------------------------------- |
-| Dry air              | Ideal gas model (often with constant $c_p$)                                             |
-| Water vapor          | IAPWS-IF97 or simplified correlations (e.g. Tetens, ASHRAE)                             |
-| Mixtures (humid air) | Use **psychrometric models**, combining both gases via Dalton’s Law and energy balances |
-
-So, for psychrometrics:
-
-* Use **IAPWS or SAM_Mollier** to calculate:
-
-  * $p_s$ (saturation pressure)
-  * $x$ (humidity ratio)
-  * $h$ (enthalpy)
-* Then mix with dry air properties accordingly
+For **humid air and air–water vapor mixtures**, psychrometric models such as  
+**SAM_Mollier** and **SAM_Psychrometrics** should be used instead.
 
 ---
 
-## 🧪 Example Use Cases: Side-by-Side
+## Features
 
-| Application              | Use IAPWS?       | Use Psychrometrics SAM_Mollier?                              |
-| ------------------------ | ---------------- | ------------------------------------------------ |
-| Steam turbine simulation | ✅ Yes            | ❌ No                                             |
-| HVAC room air modeling   | ❌ No             | ✅ Yes                                            |
-| Condensation in a boiler | ✅ Yes (Region 4) | ❌ Not needed                                     |
-| Moist air inside AHU     | ❌ No             | ✅ Yes                                            |
-| Fog/Ice fog detection    | ❌ No             | ✅ Yes — via humidity ratio & psychrometric logic |
+- Thermodynamic properties of water and steam based on **IAPWS-IF97**
+- Support for multiple IF97 regions (liquid, vapor, saturation, supercritical)
+- Consistent integration with SAM analytical workflows
+- Reference-grade formulations suitable for engineering analysis
 
 ---
-
-## ✅ Summary
-
-* **IAPWS-IF97** is for **pure water/steam** only.
-* **Psychrometrics SAM_Mollier** is for **humid air** (water vapor + dry air).
-* Both use overlapping physics (e.g. saturation pressure), but serve different systems.
-
-
 
 ## Resources
-* [Wiki](https://github.com/SAM-BIM/SAM_IAPWS/wiki)
+- 📘 **SAM IAPWS Wiki:** https://github.com/SAM-BIM/SAM_IAPWS/wiki  
+- 📘 **SAM Wiki:** https://github.com/SAM-BIM/SAM/wiki  
+- 🧠 **SAM Core:** https://github.com/SAM-BIM/SAM  
+- 🔬 **IAPWS:** https://www.iapws.org/  
+
+---
 
 ## Installing
 
-To install **SAM** from .exe just download and run [latest installer](https://github.com/SAM-BIM/SAM_Deploy/releases) 
+To install **SAM** using the Windows installer, download and run the  
+[latest installer](https://github.com/SAM-BIM/SAM_Deploy/releases/latest).
 
-## Licence ##
+Alternatively, you can build the toolkit from source using Visual Studio.  
+See the main repository for details:  
+👉 https://github.com/SAM-BIM/SAM
 
-SAM is free software licenced under GNU Lesser General Public Licence - [https://www.gnu.org/licenses/lgpl-3.0.html](https://www.gnu.org/licenses/lgpl-3.0.html)  
-Each contributor holds copyright over their respective contributions.
-The project versioning (Git) records all such contribution source information.
-See [LICENSE](https://github.com/HoareLea/SAM_Template/blob/master/LICENSE) and [COPYRIGHT_HEADER](https://github.com/HoareLea/SAM/blob/master/COPYRIGHT_HEADER.txt).
+---
+
+## Development notes
+
+- Target framework: **.NET / C#**
+- Thermodynamic formulations follow the IAPWS-IF97 specification
+- Intended for pure water and steam (not humid air)
+- New or modified `.cs` files must include the SPDX header from `COPYRIGHT_HEADER.txt`
+
+---
+
+## Licence
+
+This repository is free software licensed under the  
+**GNU Lesser General Public License v3.0 or later (LGPL-3.0-or-later)**.
+
+Each contributor retains copyright to their respective contributions.  
+The project history (Git) records authorship and provenance of all changes.
+
+See:
+- `LICENSE`
+- `NOTICE`
+- `COPYRIGHT_HEADER.txt`
